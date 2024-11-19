@@ -1,0 +1,3 @@
+Matrix Size = 1024; NTrials=5
+Reference code performance in GFLOPS Min: 0.41; Max: 0.41
+Optimized code performance in GFLOPS Min: 9.62; Max: 9.80

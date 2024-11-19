@@ -1,0 +1,19 @@
+*** Assigned Lonepeak Node:  lp113
+Matrix Size = 600; NTrials=5
+Reference sequential code performance in GFLOPS Min: 1.73; Max: 1.73
+Max Threads (from omp_get_max_threads) = 40
+Performance (Best & Worst) of parallelized version: GFLOPS || Speedup on 1/2/4/8/10/12/14/19/39 threads
+Best Performance (GFLOPS || Speedup): 1.62 1.85 2.80 4.89 5.95 7.01 8.05 10.60 16.46  || 0.94 1.07 1.61 2.82 3.43 4.04 4.64 6.11 9.49 
+Worst Performance (GFLOPS || Speedup): 1.62 1.85 2.79 4.84 5.91 6.95 7.97 10.32 13.79  || 0.94 1.07 1.61 2.79 3.41 4.01 4.60 5.95 7.95 
+Matrix Size = 600; NTrials=5
+Reference sequential code performance in GFLOPS Min: 1.73; Max: 1.73
+Max Threads (from omp_get_max_threads) = 40
+Performance (Best & Worst) of parallelized version: GFLOPS || Speedup on 1/2/4/8/10/12/14/19/39 threads
+Best Performance (GFLOPS || Speedup): 1.63 1.86 2.80 4.89 5.96 7.02 8.06 10.61 16.47  || 0.94 1.07 1.62 2.83 3.44 4.06 4.66 6.13 9.52 
+Worst Performance (GFLOPS || Speedup): 1.63 1.85 2.78 4.84 5.91 6.96 7.98 10.34 13.93  || 0.94 1.07 1.60 2.80 3.42 4.02 4.61 5.97 8.05 
+Matrix Size = 600; NTrials=5
+Reference sequential code performance in GFLOPS Min: 1.73; Max: 1.74
+Max Threads (from omp_get_max_threads) = 40
+Performance (Best & Worst) of parallelized version: GFLOPS || Speedup on 1/2/4/8/10/12/14/19/39 threads
+Best Performance (GFLOPS || Speedup): 1.62 1.85 2.80 4.89 5.95 7.01 8.06 10.60 16.54  || 0.94 1.07 1.61 2.82 3.43 4.04 4.64 6.11 9.52 
+Worst Performance (GFLOPS || Speedup): 1.62 1.85 2.79 4.84 5.91 6.96 7.98 10.33 13.96  || 0.93 1.07 1.61 2.79 3.40 4.01 4.59 5.95 8.04 

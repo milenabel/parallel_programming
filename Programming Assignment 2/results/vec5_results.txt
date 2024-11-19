@@ -1,0 +1,4 @@
+Matrix Size = 1024; NTrials=5
+Reference code performance in GFLOPS Min: 0.91; Max: 0.92
+Error : 941 Differences found over threshold 0.000000; Max Diff = 3328.000000
+Exiting

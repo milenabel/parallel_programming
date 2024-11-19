@@ -1,0 +1,7 @@
+*** Assigned Lonepeak Node:  lp124
+Matrix Size = 600; NTrials=5
+Reference sequential code performance in GFLOPS Min: 1.73; Max: 1.74
+Max Threads (from omp_get_max_threads) = 40
+Performance (Best & Worst) of parallelized version: GFLOPS || Speedup on 1/2/4/8/10/12/14/19/39 threads
+Best Performance (GFLOPS || Speedup): 1.58 2.80 4.18 7.14 8.03 8.89 9.70 8.46 9.13  || 0.91 1.61 2.40 4.10 4.61 5.10 5.57 4.86 5.24 
+Worst Performance (GFLOPS || Speedup): 1.58 2.79 4.12 6.97 7.88 8.71 9.44 8.21 8.10  || 0.91 1.60 2.36 4.00 4.53 5.00 5.42 4.72 4.65 
