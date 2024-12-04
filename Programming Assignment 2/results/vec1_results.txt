@@ -1,4 +1,0 @@
-Matrix Size = 1024; NTrials=5
-Performance (GFLOPS) for stmt 'w[i] = w[i]+1': Min: 6.17; Max: 6.36
-Performance (GFLOPS) for stmt 'w[i] = w[i+1]+1': Min: 6.10; Max: 6.24
-Performance (GFLOPS) for stmt 'w[i] = w[i-1]+1': Min: 0.88; Max: 0.88
