@@ -70,20 +70,46 @@ void mmvseq(int n, int m, double a[][n], double x[][m], double y[][m])
    }
 }
 
-void mmvpar(int n, int m, double a[][n], double x[][m], double y[][m])
-// FIXME: Initially identical to reference; make your changes to parallelize this code
-{ int i,j,k,iter;
-  
-  for (i=0;i<n;i++) for (j=0;j<m;j++) y[i][j]=0; 
-  for(iter=0;iter<10;iter++)
-   {
-    for(i=0;i<n;i++)
-     for(k=0;k<n;k++) 
-      for(j=0;j<m;j++)
-       y[i][j] += a[i][k]*x[k][j];
-    for (i=0; i<n; i++) for (j=0;j<m;j++) x[i][j] = sqrt(y[i][j]);
-   }
+void mmvpar(int n, int m, double a[][n], double x[][m], double y[][m]) {
+    int i, j, k, iter;
+    int rows_per_process = n / nprocs; // Divide rows equally among processes
+    int start_row = myid * rows_per_process;
+    int end_row = (myid == nprocs - 1) ? n : start_row + rows_per_process;
+
+    double temp_y[rows_per_process][m]; // Local result buffer
+    double temp_x[n][m]; // Buffer to store updated x after MPI_Allgather
+
+    for (i = 0; i < rows_per_process; i++) 
+        for (j = 0; j < m; j++) 
+            temp_y[i][j] = 0;
+
+    for (iter = 0; iter < 10; iter++) {
+        // Compute local rows of y
+        for (i = start_row; i < end_row; i++) {
+            for (k = 0; k < n; k++) {
+                for (j = 0; j < m; j++) {
+                    temp_y[i - start_row][j] += a[i][k] * x[k][j];
+                }
+            }
+        }
+
+        // Gather results into global x
+        MPI_Allgather(temp_y, rows_per_process * m, MPI_DOUBLE, temp_x, rows_per_process * m, MPI_DOUBLE, MPI_COMM_WORLD);
+
+        // Update x with the element-wise square root of temp_x
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < m; j++) {
+                x[i][j] = sqrt(temp_x[i][j]);
+            }
+        }
+
+        // Reset temp_y for the next iteration
+        for (i = 0; i < rows_per_process; i++) 
+            for (j = 0; j < m; j++) 
+                temp_y[i][j] = 0;
+    }
 }
+
 
 void compare(int n, int m, double wref[][m], double w[][m])
 {
